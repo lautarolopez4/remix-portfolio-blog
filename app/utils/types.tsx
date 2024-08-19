@@ -15,6 +15,7 @@ export type WindowData = {
   title: string;
   content: string | null;
   children?: React.ReactNode;
+  classname?: string;
 }
 
 export interface Post {

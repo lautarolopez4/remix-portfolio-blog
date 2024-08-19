@@ -1,5 +1,5 @@
 import { Window } from '~/components/Window';
-import { json, LoaderFunctionArgs } from '@remix-run/node'
+import { json, LoaderFunctionArgs, redirect } from '@remix-run/node'
 import { getMdxPage } from '../utils/mdx.server'
 import { useLoaderData } from '@remix-run/react';
 import { useMdxComponent } from '~/utils/mdx';
@@ -7,12 +7,12 @@ import { useMdxComponent } from '~/utils/mdx';
 export async function loader({ request, params }: LoaderFunctionArgs) {
 
   if (typeof params.slug !== 'string' || !params.slug) {
-    throw json({ status: 404 })
+    throw redirect("/404");
   }
   const page = await getMdxPage(params.slug);
 
-  if (!page) {
-    throw json({ status: 404 })
+  if (page == undefined) {
+    throw redirect("/404");
   }
 
   return json(

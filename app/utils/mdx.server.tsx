@@ -5,16 +5,16 @@ import { type MdxPage } from './types'
 
 const postsDirectory = path.join(process.cwd(), 'content/posts')
 
-export async function getMdxPage(slug: string): Promise<MdxPage | null> {
+export async function getMdxPage(slug: string): Promise<MdxPage | undefined> {
   try {
     const filePath = path.join(postsDirectory, `${slug}.mdx`)
     const fileContents = await fs.readFile(filePath, 'utf-8')
 
     const compiledPage = await compileMdx<MdxPage['frontmatter']>(slug, [{ content: fileContents, path: filePath }])
-    return compiledPage ? { ...compiledPage, slug } : null
+    return compiledPage ? { ...compiledPage, slug } : undefined
   } catch (error) {
     console.error(`Error loading MDX file for slug: ${slug}`, error)
-    return null
+    return undefined
   }
 }
 
@@ -28,6 +28,7 @@ export async function getMdxListItems(): Promise<Array<{ slug: string; frontmatt
 
       const compiledPage = await compileMdx<MdxPage['frontmatter']>(slug, [{ content: fileContents, path: fullPath }])
 
+      // Si compiledPage es null, retornamos null; de lo contrario, retornamos el resultado con un frontmatter vacío si es necesario
       return compiledPage
         ? { ...compiledPage, slug }
         : { code: '', frontmatter: {} as MdxPage['frontmatter'], slug }
