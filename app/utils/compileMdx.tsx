@@ -1,9 +1,4 @@
-
-import * as path from 'path'
 import { bundleMDX } from 'mdx-bundler'
-
-
-
 import rehypePrettyCode from 'rehype-pretty-code';
 
 export async function compileMdx<T>(
@@ -33,7 +28,7 @@ export async function compileMdx<T>(
       frontmatter: result.frontmatter as T,
     };
   } catch (error) {
-    console.error(`Error compiling MDX for slug ${slug}`, error);
+    console.error(`Error compiling MDX for slug ${slug}`);
     return null;
   }
 }
