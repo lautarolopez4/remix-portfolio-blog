@@ -1,6 +1,6 @@
 import * as mdxBundler from 'mdx-bundler/client/index.js'
 import * as React from 'react'
-import { Heading, Subheading, Paragraph } from '~/components/typography';
+import { Heading, Subheading, Paragraph, Quote, Link, BlogImage } from '~/components/mdxCustomComponents';
 
 const mdxComponents = {
   h1: (props) => <Heading as="h1" {...props} />,
@@ -9,7 +9,10 @@ const mdxComponents = {
   h4: (props) => <Subheading as="h4" {...props} />,
   h5: (props) => <Subheading as="h5" {...props} />,
   h6: (props) => <Subheading as="h6" {...props} />,
+  blockquote: Quote,
   p: Paragraph,
+  a: Link,
+  img: (imgProps) => <BlogImage as="img" {...imgProps} />,
 };
 
 export function useMdxComponent(code: string) {

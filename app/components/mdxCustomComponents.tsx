@@ -17,8 +17,8 @@ type TitleProps = {
     }
   );
 
-const headingStyles = 'font-bold text-sm';
-const subheadingStyles = 'font-bold text-xs';
+const headingStyles = 'font-bold text-sm pb-2 ';
+const subheadingStyles = 'font-bold text-xs pb-1 ';
 
 const titleColors = {
   primary: 'text-black dark:text-white',
@@ -76,4 +76,49 @@ function Paragraph({
   });
 }
 
-export { Heading, Subheading, Paragraph };
+type QuoteProps = {
+  children: React.ReactNode;
+  className?: string;
+};
+
+const Quote = ({ children, className }: QuoteProps) => (
+  <blockquote className={clsx("border-l-2 border-white-300 pl-4 italic text-gray-400", className)}>
+    {children}
+  </blockquote>
+);
+
+
+type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
+
+function Link({ className, ...props }: LinkProps) {
+  return (
+    <a
+      className={`text-blue-500 hover:text-blue-700 ${className}`}
+      {...props}
+    />
+  );
+}
+
+
+const BlogImage = ({
+  src,
+  alt = '',
+  transparentBackground = false,
+  className,
+  ...rest
+}: React.ComponentProps<'img'> & { transparentBackground?: boolean }) => {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={`w-full rounded-lg object-cover p-5 ${className || ''}`} // Combina className si se pasa
+      style={{
+        backgroundColor: transparentBackground ? 'transparent' : 'rgb:e6e9ee',
+        ...rest.style,
+      }}
+      {...rest}
+    />
+  );
+};
+export { Heading, Subheading, Paragraph, Quote, Link, BlogImage };
+
