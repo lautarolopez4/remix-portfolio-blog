@@ -1,5 +1,7 @@
-import { bundleMDX } from 'mdx-bundler'
+import { bundleMDX } from 'mdx-bundler';
 import rehypePrettyCode from 'rehype-pretty-code';
+import remarkRewrite from 'rehype-rewrite';
+import { Element } from 'hast';
 
 export async function compileMdx<T>(
   slug: string,
@@ -8,7 +10,7 @@ export async function compileMdx<T>(
   try {
     const result = await bundleMDX({
       source: files[0].content,
-      mdxOptions(options, frontmatter) {
+      mdxOptions(options) {
         options.rehypePlugins = [
           ...(options.rehypePlugins ?? []),
           [
@@ -18,6 +20,22 @@ export async function compileMdx<T>(
               keepBackground: true,
             },
           ],
+          [
+            remarkRewrite,
+            {
+              rewrite: (node: Element, index: number, parent: Element) => {
+
+                if (node.type === 'element' && node.tagName === 'p') {
+                  const prevIndex = index ? index - 2 : -1;
+                  const prevNode = parent?.children[prevIndex] as Element;
+
+                  if (prevNode && prevNode.tagName === 'p') {
+                    parent.children.splice(index, 0, { type: 'element', tagName: 'br', properties: {}, children: [] });
+                  }
+                }
+              }
+            }
+          ]
         ];
         return options;
       },
