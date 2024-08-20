@@ -1,0 +1,23 @@
+---
+title: How is this site built?
+published: 2024-08-19
+---
+
+As you may have noticed, this lightweight site supports MDX and MD files for its compilation. But how exactly is this processed by [Remix.run](https://remix.run)? 
+
+This could be done easily with the built-in support for MD/X files provided by Remix, but the case here is that I needed more customization about what every component that outputs of the MDX compilation looked or behaved. 
+
+# Custom routing
+The first problem that i ran into was the fact that due to the nested routing policies of the framework, I couldn't get to work with every entry of the blog being on a different path apart from the react components that make the site functional. I mean technicaly I could do it, but my blog entries would end up looking something like this:
+> "blog.the-first-item.mdx" 
+> "blog.the-second.mdx" 
+> "blog.the-third.mdx" 
+
+All of this would be located in the same path that I would need to modify in order to change any route. Imagine reaching 15 entries (a totally achievable number), and trying to navigate through that hierarchy would become a total mess.
+
+To solve this issue  I got the file 'mdx.server.tsx', that picks up all the abstraction of this work and , for example, if tomorrow we need to migrate because my content folder is too big to mantain here we could easily just refactor the file to work with an API or whatever that is chosen make the work of retrieving the content. 
+
+Outside from this, every content is retrieved originally from the registered route of "posts.$slug.tsx" following the [nested routes](https://remix.run/docs/en/main/discussion/routes) that remix provides, and making use of the benefits that the [loader](https://remix.run/docs/en/main/route/loader) brings to table. 
+
+# Custom components
+As I mentioned earlier, i'm not using the default support of remix for mdx files, I chose to have more complex workloads is the [mdx-bundler](https://github.com/kentcdodds/mdx-bundler). This plugin gave me the functionality that I needed for customs components, so for example, every time that the bundler renders an \<a\> tag i replaces it with my custom components for Links. From there I have all the control withing styling and anything that is done with that content, this could be useful for things like retrieving an image with a key and not doing it directly from the "src" property or the original markdown file. 
