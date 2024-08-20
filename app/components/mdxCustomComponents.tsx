@@ -2,7 +2,7 @@
 import { clsx } from 'clsx';
 import * as React from 'react';
 
-type TitleProps = {
+export type TitleProps = {
   variant?: 'primary' | 'secondary';
   as?: React.ElementType;
   className?: string;
@@ -18,7 +18,7 @@ type TitleProps = {
   );
 
 const headingStyles = 'font-bold text-sm pb-2 ';
-const subheadingStyles = 'font-bold text-xs pb-1 ';
+const subheadingStyles = 'font-bold text-xs mb-1 ';
 
 const titleColors = {
   primary: 'text-black dark:text-white',
@@ -56,10 +56,10 @@ type ParagraphProps = {
   as?: React.ElementType;
 } & (
     | { children: React.ReactNode }
-    | { dangerouslySetInnerHTML: { __html: string } }
+
   );
 
-const paragraphStyles = ""
+const paragraphStyles = "";
 
 function Paragraph({
   className,
@@ -69,12 +69,13 @@ function Paragraph({
   ...rest
 }: ParagraphProps) {
   return React.createElement(as, {
-    className: clsx(paragraphStyles, className, {
+    className: clsx(paragraphStyles, textColorClassName, className, {
       'prose prose-light dark:prose-dark': prose,
     }),
     ...rest,
   });
 }
+
 
 type QuoteProps = {
   children: React.ReactNode;
@@ -82,7 +83,7 @@ type QuoteProps = {
 };
 
 const Quote = ({ children, className }: QuoteProps) => (
-  <blockquote className={clsx("border-l-2 border-white-300 pl-4 italic text-gray-400", className)}>
+  <blockquote className={clsx("border-l-2 border-white-300 pl-4 my-3 italic text-gray-400", className)}>
     {children}
   </blockquote>
 );
@@ -111,7 +112,7 @@ const BlogImage = ({
     <img
       src={src}
       alt={alt}
-      className={`w-full rounded-lg object-cover p-5 ${className || ''}`} // Combina className si se pasa
+      className={`w-full rounded-lg object-cover px-10 my-3 ${className || ''}`}
       style={{
         backgroundColor: transparentBackground ? 'transparent' : 'rgb:e6e9ee',
         ...rest.style,

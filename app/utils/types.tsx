@@ -1,14 +1,14 @@
 export type Frontmatter = {
   title: string;
   description: string;
-  published: string; // YYYY-MM-DD
+  published: string;
   featured: boolean;
 };
 
 export interface MdxPage<T = Record<string, any>> {
-  code: string; // Código JavaScript generado por la compilación del MDX
-  frontmatter: T; // Metadatos extraídos del frontmatter del MDX
-  slug: string; // Identificador único para la página
+  code: string;
+  frontmatter: T;
+  slug: string;
 }
 
 export type WindowData = {
@@ -20,7 +20,7 @@ export type WindowData = {
 
 export interface Post {
   frontmatter: Frontmatter;
-  contentMDX: string; // El contenido del MDX como un componente React
+  contentMDX: string;
 }
 
 export type PostMeta = {
