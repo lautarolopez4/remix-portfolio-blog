@@ -27,7 +27,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Header />
         <div className="bg-black grid grid-cols-[5fr_13fr] pt-2">
           <aside className="block isolate min-w-0">
-            <Window title="current status" content="Pensando" />
+            <Window title="current status" content="evolving" />
             <Window title="recently played" content={null}>
               <div className="p-2">
                 <img className="border border-black" src={'https://upload.wikimedia.org/wikipedia/en/thumb/6/6a/ASAP_Rocky_Testing.jpg/220px-ASAP_Rocky_Testing.jpg'} />
@@ -35,7 +35,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </Window>
             <Window title="links" content={null} >
               <ul className="p-2 text-xs">
-                <li>x.com/<a href="https://x.com/lauchalopez01" target="_blank" className="hover:text-green-400">lauchalopez01</a></li>
                 <li>github.com/<a href="https://github.com/lautarolopez4" target="_blank" className="hover:text-green-400">lautarolopez4</a></li>
                 <li><a href="mailto:lautarolopez4@protonmail.com" target="_blank" className="hover:text-green-400">e-mail me</a></li>
               </ul>
