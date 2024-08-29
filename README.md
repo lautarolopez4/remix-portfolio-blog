@@ -1,40 +1,29 @@
-# Welcome to Remix!
+# Remix Personal Blog
+Before saying anything, props to [Char](https://github.com/Name) for making the design of [char.blog](https://github.com/Name/char.blog) which heavily inspired my website.
 
-- 📖 [Remix docs](https://remix.run/docs)
+This website is my personal minimal blog made with [Remix.Run](https://remix.run) and deployed in [Vercel](https://vercel.com). 
+It supports: 
+- MDX files compilation
+- SEO optimization
+- SSR with Remix
+
+### Technology
+- React
+- Remix
+- Tailwind
+- Vercel
 
 ## Development
-
-Run the dev server:
-
-```shellscript
+```sh
+#Install all dependencies
+npm install
+# Run on dev mode
 npm run dev
 ```
-
 ## Deployment
-
-First, build your app for production:
-
 ```sh
+#First run the app in production mode
 npm run build
-```
-
-Then run the app in production mode:
-
-```sh
+#Then run the app in production mode:
 npm start
 ```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
