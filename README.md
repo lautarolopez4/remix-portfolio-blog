@@ -1,40 +1,24 @@
-# Welcome to Remix!
+# Personal Portfolio & Blog
 
-- 📖 [Remix docs](https://remix.run/docs)
+This is my personal portfolio website, which includes a minimalist blog. It’s built with [Remix](https://remix.run) using modern technologies like React, TailwindCSS, and deployed on [Vercel](https://vercel.com).
 
-## Development
+## Acknowledgments
+Props to [Char](https://github.com/Name) for the design of [char.blog](https://github.com/Name/char.blog), which heavily inspired the design of this project.
 
-Run the dev server:
+## Description
 
-```shellscript
-npm run dev
-```
+This site combines my personal portfolio with a simple and efficient blog to share articles written in MDX format. The goal is to provide a fast, SEO-optimized platform with server-side rendering (SSR) powered by Remix.
 
-## Deployment
+### Features
 
-First, build your app for production:
+- **Blog with MDX**: Write blog posts using MDX to combine content with React components.
+- **SEO Optimization**: Implement SEO strategies to improve search engine rankings.
+- **Server-Side Rendering (SSR)**: Utilize Remix for optimized initial loading and better user experience.
+- **Minimalist Design**: TailwindCSS for a clean, fast, and responsive user interface.
 
-```sh
-npm run build
-```
+## Technologies
 
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+- **[React](https://reactjs.org/)**: JavaScript library for building user interfaces.
+- **[Remix](https://remix.run/)**: Full-stack React framework with hybrid rendering (SSR) and data-fetching optimization.
+- **[TailwindCSS](https://tailwindcss.com/)**: Utility-first CSS framework for modern and customizable design.
+- **[Vercel](https://vercel.com/)**: Deployment platform for fast and scalable hosting.
