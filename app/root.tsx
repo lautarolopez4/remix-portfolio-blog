@@ -29,14 +29,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <aside className="block isolate min-w-0">
             <Window title="current status" content="evolving" />
             <Window title="recently played" content={null}>
-              <div className="p-2">
-                <img className="border border-black" src={'https://upload.wikimedia.org/wikipedia/en/thumb/6/6a/ASAP_Rocky_Testing.jpg/220px-ASAP_Rocky_Testing.jpg'} />
+              <div className="p-2 relative">
+                <a href="https://www.youtube.com/watch?v=elVF7oG0pQs">
+                  <img className="border border-black" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/00/68/13/006813b3-9ca1-2e6f-98df-4ef78cd6cb49/06UMGIM20452.rgb.jpg/600x600bf-60.jpg" alt="Image"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 absolute bottom-2.5 right-2.5 bg-zinc-600/50 bg-clip-border rounded p-1">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    </svg>
+                </a>
               </div>
             </Window>
             <Window title="links" content={null} >
               <ul className="p-2 text-xs">
-                <li>github.com/<a href="https://github.com/lautarolopez4" target="_blank" className="hover:text-green-400">lautarolopez4</a></li>
-                <li><a href="mailto:lautarolopez4@protonmail.com" target="_blank" className="hover:text-green-400">e-mail me</a></li>
+                <li>github.com/<a href="https://github.com/lautarolopez4" target="_blank" className="hover:text-green-400 break-all">lautarolopez4</a></li>
+                <li><a href="mailto:lautarolopm@protonmail.com" target="_blank" className="hover:text-green-400">e-mail me</a></li>
               </ul>
             </Window>
           </aside>
